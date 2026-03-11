@@ -3,548 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ibrahim Ahmed - IT Support & Data Analyst</title>
+    <title>Ibrahim Adam - Healthcare Data Analyst</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #f2f5f9;
-            font-family: 'Segoe UI', 'Arial', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 30px 20px;
-            line-height: 1.5;
-        }
-
-        .cv-card {
-            max-width: 950px;
-            width: 100%;
-            background-color: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            padding: 45px 50px;
-            margin-bottom: 25px;
-        }
-
-        /* زر التحميل */
-        .print-btn {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 25px;
-        }
-
-        .print-btn button {
-            background-color: #0077b5;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 12px 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 5px 12px rgba(0, 119, 181, 0.3);
-            transition: 0.2s;
-            border: 1px solid #005a8c;
-        }
-
-        .print-btn button:hover {
-            background-color: #005a8c;
-            transform: scale(1.02);
-        }
-
-        /* رأس الصفحة */
-        .header {
-            margin-bottom: 25px;
-            border-bottom: 3px solid #0077b5;
-            padding-bottom: 20px;
-        }
-
-        .header h1 {
-            font-size: 2.8em;
-            font-weight: 700;
-            color: #1e293b;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        .header h2 {
-            font-size: 1.5em;
-            font-weight: 500;
-            color: #0077b5;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        /* معلومات الاتصال */
-        .contact {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px 30px;
-            background-color: #f8fafc;
-            padding: 15px 25px;
-            border-radius: 14px;
-            margin-bottom: 30px;
-            border: 1px solid #e2e8f0;
-            font-size: 0.98em;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #1e293b;
-        }
-
-        .contact-item .icon {
-            font-weight: 600;
-            color: #0077b5;
-            min-width: 30px;
-        }
-
-        /* كل قسم */
-        .section {
-            margin-bottom: 30px;
-        }
-
-        .section-title {
-            font-size: 1.6em;
-            font-weight: 700;
-            color: #1e293b;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 8px;
-            margin-bottom: 18px;
-            letter-spacing: 1px;
-        }
-
-        /* نبذة شخصية */
-        .profile p {
-            background-color: #f0f7ff;
-            padding: 18px 25px;
-            border-radius: 16px;
-            border-left: 6px solid #0077b5;
-            font-size: 1.05em;
-            color: #1e293b;
-            line-height: 1.7;
-        }
-
-        /* المهارات - شبكة عمودين */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .skill-cat h3 {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: #0077b5;
-            margin-bottom: 12px;
-        }
-
-        .skill-cat ul {
-            list-style: none;
-        }
-
-        .skill-cat li {
-            margin-bottom: 8px;
-            padding-left: 22px;
-            position: relative;
-            font-size: 0.98em;
-            color: #2d3c4b;
-        }
-
-        .skill-cat li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: #0077b5;
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-
-        /* الخبرة والمشاريع */
-        .entry {
-            margin-bottom: 28px;
-        }
-
-        .entry-header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 8px;
-        }
-
-        .entry-title {
-            font-size: 1.2em;
-            font-weight: 700;
-            color: #0f172a;
-        }
-
-        .entry-sub {
-            font-weight: 600;
-            color: #0077b5;
-        }
-
-        .entry-date {
-            background-color: #ecf1f6;
-            padding: 4px 14px;
-            border-radius: 30px;
-            font-size: 0.85em;
-            font-weight: 500;
-            color: #334155;
-        }
-
-        .entry-desc {
-            margin-top: 8px;
-            padding-left: 18px;
-            border-left: 2px solid #cbd5e1;
-        }
-
-        .entry-desc ul {
-            list-style: none;
-        }
-
-        .entry-desc li {
-            margin-bottom: 6px;
-            padding-left: 20px;
-            position: relative;
-            font-size: 0.98em;
-            color: #253544;
-        }
-
-        .entry-desc li::before {
-            content: "•";
-            color: #0077b5;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            font-size: 1.2em;
-        }
-
-        /* المشاريع بشكل مميز */
-        .project-item {
-            background-color: #fafdff;
-            border: 1px solid #dee7ef;
-            border-radius: 16px;
-            padding: 18px 22px;
-            margin-bottom: 18px;
-        }
-
-        .project-title {
-            font-size: 1.2em;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 8px;
-        }
-
-        .project-title a {
-            color: #0077b5;
-            text-decoration: none;
-            font-size: 0.9em;
-            margin-left: 12px;
-            border: 1px solid #0077b5;
-            padding: 2px 10px;
-            border-radius: 20px;
-        }
-
-        .project-title a:hover {
-            background-color: #e6f0f9;
-        }
-
-        .project-desc {
-            color: #2b3b4c;
-            font-size: 0.98em;
-            line-height: 1.6;
-        }
-
-        /* قائمة الشهادات */
-        .certs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px 20px;
-        }
-
-        .cert-item {
-            background-color: #ecf7ff;
-            border: 1px solid #bdd8ec;
-            border-radius: 40px;
-            padding: 5px 18px;
-            font-size: 0.95em;
-            color: #014d7a;
-            font-weight: 500;
-        }
-
-        /* اللغات */
-        .languages {
-            display: flex;
-            gap: 35px;
-            font-size: 1.1em;
-        }
-
-        .lang {
-            display: flex;
-            gap: 8px;
-        }
-
-        .lang strong {
-            color: #0f172a;
-        }
-
-        .lang span {
-            color: #4b5f73;
-            font-weight: 500;
-        }
-
-        /* تنسيق الطباعة */
-        @media print {
-            body {
-                background: white;
-                padding: 0.2in;
-            }
-            .cv-card {
-                box-shadow: none;
-                padding: 0.2in;
-                max-width: 100%;
-                border-radius: 0;
-            }
-            .print-btn {
-                display: none;
-            }
-            .contact {
-                background-color: #f2f2f2;
-                border: 1px solid #aaa;
-            }
-        }
-
-        /* للشاشات الصغيرة */
-        @media (max-width: 700px) {
-            .cv-card {
-                padding: 25px;
-            }
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            .contact {
-                flex-direction: column;
-                gap: 12px;
-            }
-            .header h1 {
-                font-size: 2.2em;
-            }
-        }
+        /* التنسيقات الاحترافية التي طلبتها مع لمسات تحسين للمسار الجديد */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #f2f5f9; font-family: 'Segoe UI', 'Arial', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 20px; line-height: 1.5; }
+        .cv-card { max-width: 950px; width: 100%; background-color: #ffffff; border-radius: 16px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); padding: 45px 50px; margin-bottom: 25px; }
+        .print-btn { display: flex; justify-content: flex-end; margin-bottom: 25px; }
+        .print-btn button { background-color: #0077b5; color: white; border: none; border-radius: 50px; padding: 12px 30px; font-size: 1rem; font-weight: 600; cursor: pointer; box-shadow: 0 5px 12px rgba(0, 119, 181, 0.3); transition: 0.2s; border: 1px solid #005a8c; }
+        .print-btn button:hover { background-color: #005a8c; transform: scale(1.02); }
+        .header { margin-bottom: 25px; border-bottom: 3px solid #0077b5; padding-bottom: 20px; }
+        .header h1 { font-size: 2.8em; font-weight: 700; color: #1e293b; letter-spacing: 1px; margin-bottom: 5px; }
+        .header h2 { font-size: 1.5em; font-weight: 500; color: #0077b5; text-transform: uppercase; letter-spacing: 1.5px; }
+        .contact { display: flex; flex-wrap: wrap; gap: 20px 30px; background-color: #f8fafc; padding: 15px 25px; border-radius: 14px; margin-bottom: 30px; border: 1px solid #e2e8f0; font-size: 0.98em; }
+        .contact-item { display: flex; align-items: center; gap: 8px; color: #1e293b; }
+        .contact-item .icon { font-weight: 600; color: #0077b5; min-width: 30px; }
+        .section { margin-bottom: 30px; }
+        .section-title { font-size: 1.6em; font-weight: 700; color: #1e293b; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 18px; letter-spacing: 1px; }
+        .profile p { background-color: #f0f7ff; padding: 18px 25px; border-radius: 16px; border-left: 6px solid #0077b5; font-size: 1.05em; color: #1e293b; line-height: 1.7; }
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .skill-cat h3 { font-size: 1.2em; font-weight: 600; color: #0077b5; margin-bottom: 12px; }
+        .skill-cat ul { list-style: none; }
+        .skill-cat li { margin-bottom: 8px; padding-left: 22px; position: relative; font-size: 0.98em; color: #2d3c4b; }
+        .skill-cat li::before { content: "▹"; position: absolute; left: 0; color: #0077b5; font-weight: bold; font-size: 1.1em; }
+        .entry { margin-bottom: 28px; }
+        .entry-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+        .entry-title { font-size: 1.2em; font-weight: 700; color: #0f172a; }
+        .entry-sub { font-weight: 600; color: #0077b5; }
+        .entry-date { background-color: #ecf1f6; padding: 4px 14px; border-radius: 30px; font-size: 0.85em; font-weight: 500; color: #334155; }
+        .entry-desc { margin-top: 8px; padding-left: 18px; border-left: 2px solid #cbd5e1; }
+        .entry-desc ul { list-style: none; }
+        .entry-desc li { margin-bottom: 6px; padding-left: 20px; position: relative; font-size: 0.98em; color: #253544; }
+        .entry-desc li::before { content: "•"; color: #0077b5; font-weight: bold; position: absolute; left: 0; font-size: 1.2em; }
+        .project-item { background-color: #fafdff; border: 1px solid #dee7ef; border-radius: 16px; padding: 18px 22px; margin-bottom: 18px; }
+        .project-title { font-size: 1.2em; font-weight: 700; color: #0f172a; margin-bottom: 8px; }
+        .project-title a { color: #0077b5; text-decoration: none; font-size: 0.9em; margin-left: 12px; border: 1px solid #0077b5; padding: 2px 10px; border-radius: 20px; }
+        .project-desc { color: #2b3b4c; font-size: 0.98em; line-height: 1.6; }
+        .certs { display: flex; flex-wrap: wrap; gap: 12px 20px; }
+        .cert-item { background-color: #ecf7ff; border: 1px solid #bdd8ec; border-radius: 40px; padding: 5px 18px; font-size: 0.95em; color: #014d7a; font-weight: 500; }
+        .languages { display: flex; gap: 35px; font-size: 1.1em; }
+        @media print { body { background: white; padding: 0.2in; } .cv-card { box-shadow: none; padding: 0.2in; max-width: 100%; border-radius: 0; } .print-btn { display: none; } }
+        @media (max-width: 700px) { .skills-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <div class="cv-card" id="cv-content">
-        <!-- زر تحميل PDF -->
         <div class="print-btn">
-            <button onclick="window.print()">📥 Download PDF (Print)</button>
+            <button onclick="window.print()">📥 Download PDF / Print</button>
         </div>
 
-        <!-- الرأس -->
         <div class="header">
-            <h1>IBRAHIM AHMED ADAM IBRAHIM</h1>
-            <h2>IT Support Specialist | Data Analyst</h2>
+            <h1>IBRAHIM AHMED ADAM</h1>
+            <h2>Healthcare Data Analyst | Licensed Nurse</h2>
         </div>
 
-        <!-- جهات الاتصال -->
         <div class="contact">
             <div class="contact-item"><span class="icon">📞</span> +971 50 829 5306</div>
             <div class="contact-item"><span class="icon">✉️</span> ibrahim121adam@gmail.com</div>
-            <div class="contact-item"><span class="icon">📍</span> Al Nuaimia, Ajman, UAE</div>
-            <div class="contact-item"><span class="icon">🌐</span> Sudanese</div>
+            <div class="contact-item"><span class="icon">📍</span> Ajman, UAE</div>
+            <div class="contact-item"><span class="icon">🔗</span> linkedin.com/in/ibrahim121adam</div>
         </div>
 
-        <!-- نبذة تعريفية (Profile) -->
         <section class="section profile">
-            <h2 class="section-title">Profile</h2>
+            <h2 class="section-title">Professional Profile</h2>
             <p>
-                detail-oriented IT support professional and aspiring data analyst with certified training in technical support (Google) and cloud architecture (AWS). 
-                Proficient in Python, HTML, data analysis, and digital marketing analytics. 
-                Strong problem-solving, communication, and adaptability skills honed through diverse experience in healthcare (nursing) and freelance digital marketing. 
-                Eager to apply technical expertise and customer-focused mindset to drive efficient IT operations and data-driven decisions.
+                Highly analytical professional with 5+ years of clinical experience as a Licensed Nurse, transitioning into <strong>Healthcare Data Analytics</strong>. Expert in bridging the gap between healthcare workflows and data insights. Certified in Google IT Support and AWS Cloud Architecting, with strong proficiency in SQL, Power BI, and Python for data manipulation. Dedicated to improving patient outcomes and operational efficiency through evidence-based data visualization and analysis.
             </p>
         </section>
 
-        <!-- المهارات (عمودين) -->
         <section class="section">
-            <h2 class="section-title">Skills</h2>
+            <h2 class="section-title">Core Skills</h2>
             <div class="skills-grid">
                 <div class="skill-cat">
-                    <h3>Technical & IT Support</h3>
+                    <h3>Data Analytics & Tech</h3>
                     <ul>
-                        <li>Technical Support & Troubleshooting (Win/macOS)</li>
-                        <li>Python (Pandas, Web Scraping, Data Analysis)</li>
-                        <li>HTML, CSS, JavaScript (Basics)</li>
+                        <li>SQL (Data Extraction & Querying)</li>
+                        <li>Power BI (Data Visualization & Dashboards)</li>
+                        <li>Python (Pandas, NumPy, Matplotlib)</li>
+                        <li>Advanced Excel (Pivot Tables, VLOOKUP)</li>
                         <li>Cloud Architecture (AWS Academy)</li>
-                        <li>GitHub & Version Control</li>
-                        <li>Networking: TCP/IP, DNS, DHCP</li>
-                        <li>Hardware & Software Diagnostics</li>
+                        <li>GitHub & Technical Support Fundamentals</li>
                     </ul>
                 </div>
                 <div class="skill-cat">
-                    <h3>Data & Soft Skills</h3>
+                    <h3>Clinical & Professional</h3>
                     <ul>
-                        <li>Data Analysis (Google Analytics, Python)</li>
-                        <li>Digital Marketing & SEO</li>
-                        <li>Google Ads / Facebook Ads</li>
-                        <li>Excellent Communication & Interpersonal</li>
-                        <li>Problem‑Solving & Adaptability</li>
-                        <li>Time & Task Management</li>
-                        <li>Customer Service Orientation</li>
-                        <li>Attention to Detail & Cultural Sensitivity</li>
+                        <li>Clinical Data Interpretation</li>
+                        <li>Electronic Health Records (EHR) Knowledge</li>
+                        <li>Patient Safety & Quality Documentation</li>
+                        <li>Critical Thinking & Problem Solving</li>
+                        <li>Multidisciplinary Team Collaboration</li>
+                        <li>Healthcare Workflow Optimization</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- الخبرات العملية (مع التركيز على القابلية للنقل) -->
         <section class="section">
-            <h2 class="section-title">Experience</h2>
+            <h2 class="section-title">Work Experience</h2>
 
-            <!-- خبرة تقنية / مشاريع ذاتية -->
             <div class="entry">
                 <div class="entry-header">
-                    <span class="entry-title">Freelance Web Developer / Data Analyst</span>
+                    <span class="entry-title">Healthcare Data Insights (Self-Directed)</span>
                     <span class="entry-date">2023 – Present</span>
                 </div>
-                <div class="entry-sub">Self-Employed (Remote)</div>
+                <div class="entry-sub">Project Portfolio Development</div>
                 <div class="entry-desc">
                     <ul>
-                        <li>Developed and deployed a personal responsive website using HTML, CSS, and JavaScript, hosted on GitHub Pages.</li>
-                        <li>Implemented Python projects for data analysis (Pandas, web scraping) to extract insights from web data.</li>
-                        <li>Designed and managed digital marketing campaigns (SEO, Google Ads) and analyzed performance via Google Analytics.</li>
+                        <li>Building end-to-end data projects using SQL to clean and query healthcare datasets.</li>
+                        <li>Designing interactive Power BI dashboards to track clinical KPIs and patient recovery metrics.</li>
+                        <li>Automating data collection tasks using Python web scraping (BeautifulSoup) for market analysis.</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- خبرة التسويق الرقمي (من السيرة الذاتية للتسويق) -->
             <div class="entry">
                 <div class="entry-header">
-                    <span class="entry-title">Digital Marketing Specialist</span>
-                    <span class="entry-date">2022 – 2023</span>
-                </div>
-                <div class="entry-sub">Freelance / Self-Employed, Ajman</div>
-                <div class="entry-desc">
-                    <ul>
-                        <li>Prepared and executed digital marketing campaigns across social media, improving online reputation.</li>
-                        <li>Collaborated with sales teams to align marketing strategies with business goals.</li>
-                        <li>Analyzed campaign data using Google Analytics and Excel to optimize ad spend and targeting.</li>
-                        <li>Managed company social media pages and responded to customer inquiries promptly.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- خبرة التمريض (مدمجة مع إبراز المهارات الناعمة) -->
-            <div class="entry">
-                <div class="entry-header">
-                    <span class="entry-title">Staff Nurse (Various Departments)</span>
+                    <span class="entry-title">Staff Nurse (Licensed Professional)</span>
                     <span class="entry-date">2018 – 2022</span>
                 </div>
-                <div class="entry-sub">Al-Saaha Hospital, Al-Moalem Medical City, Sinnar Teaching Hospital – Sudan</div>
+                <div class="entry-sub">Al-Saaha Hospital & Al-Moalem Medical City - Sudan</div>
                 <div class="entry-desc">
                     <ul>
-                        <li>Delivered high-quality patient care in ICU, emergency, internal medicine, and oncology units.</li>
-                        <li>Collaborated effectively within multidisciplinary teams under high-pressure situations.</li>
-                        <li>Maintained accurate patient records and ensured strict hygiene standards.</li>
-                        <li>Demonstrated adaptability, cultural sensitivity, and exceptional communication with patients and families.</li>
-                        <li>Trained and oriented new nursing staff on protocols and procedures.</li>
+                        <li>Managed critical patient data and documentation in ICU, Oncology, and Emergency wards.</li>
+                        <li>Collaborated with medical teams to interpret clinical indicators for high-risk patients.</li>
+                        <li>Optimized ward workflows by maintaining high hygiene and clinical documentation standards.</li>
+                        <li>Utilized patient monitoring systems to analyze vital trends and adherence to treatment.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- المشاريع المهمة (مفصلة) -->
         <section class="section">
             <h2 class="section-title">Key Projects</h2>
-
             <div class="project-item">
-                <div class="project-title">
-                    Personal Portfolio Website 
-                    <a href="https://ibrahim121adam.github.io" target="_blank">🔗 Live Demo</a>
-                </div>
-                <div class="project-desc">
-                    Built a fully responsive personal website using HTML, CSS, and JavaScript. Hosted on GitHub Pages. Showcases technical skills and projects.
-                </div>
+                <div class="project-title">Healthcare Dashboard Portfolio <a href="https://ibrahim121adam.github.io/cv-repo/" target="_blank">🔗 Live Demo</a></div>
+                <div class="project-desc">Designed a technical portfolio hosted on GitHub Pages using HTML/JS to demonstrate data-driven solutions and technical documentation.</div>
             </div>
-
             <div class="project-item">
-                <div class="project-title">Python Data Analysis & Web Scraping</div>
-                <div class="project-desc">
-                    Developed scripts using Python (BeautifulSoup, Pandas) to scrape and analyze e‑commerce data, generating sales insights. Visualized trends using Matplotlib.
-                </div>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">Cloud Architecture Design (AWS)</div>
-                <div class="project-desc">
-                    Designed a scalable web application architecture on AWS (EC2, S3, RDS) as part of AWS Academy coursework, incorporating security and cost optimization.
-                </div>
+                <div class="project-title">Clinical Trends Analysis (Python)</div>
+                <div class="project-desc">Developed Python scripts to analyze simulated patient data, identifying correlations between treatment protocols and recovery times.</div>
             </div>
         </section>
 
-        <!-- التعليم -->
         <section class="section">
-            <h2 class="section-title">Education</h2>
+            <h2 class="section-title">Education & Certifications</h2>
             <div class="entry">
-                <div class="entry-header">
-                    <span class="entry-title">Diploma in Nursing Sciences (General Nursing)</span>
-                    <span class="entry-date">2014 – 2018</span>
-                </div>
+                <div class="entry-header"><span class="entry-title">Diploma in Nursing Sciences</span><span class="entry-date">2018</span></div>
                 <div class="entry-sub">Sinnar University, Sudan</div>
             </div>
-            <div class="entry">
-                <div class="entry-header">
-                    <span class="entry-title">Certificate in Basics of Technical Support</span>
-                    <span class="entry-date">Oct 2023</span>
-                </div>
-                <div class="entry-sub">Google Coursera</div>
-            </div>
-            <div class="entry">
-                <div class="entry-header">
-                    <span class="entry-title">AWS Academy Cloud Architecting</span>
-                    <span class="entry-date">2023</span>
-                </div>
-                <div class="entry-sub">AWS Academy</div>
-            </div>
-            <div class="entry">
-                <div class="entry-header">
-                    <span class="entry-title">Digital Marketing Fundamentals</span>
-                    <span class="entry-date">2023</span>
-                </div>
-                <div class="entry-sub">Google Coursera</div>
-            </div>
-        </section>
-
-        <!-- الشهادات الإضافية -->
-        <section class="section">
-            <h2 class="section-title">Certifications & Training</h2>
             <div class="certs">
-                <span class="cert-item">Professional Diploma in Computer Skills (7 Vision)</span>
-                <span class="cert-item">ICDL Preparation Course</span>
-                <span class="cert-item">BLS (Basic Life Support)</span>
-                <span class="cert-item">COVID-19 Training (Samaritan’s Purse)</span>
+                <span class="cert-item">Google IT Support Professional Certificate</span>
+                <span class="cert-item">AWS Academy Cloud Architecting</span>
+                <span class="cert-item">Digital Marketing Fundamentals (Google)</span>
+                <span class="cert-item">Basic Life Support (BLS)</span>
             </div>
         </section>
 
-        <!-- اللغات -->
         <section class="section">
             <h2 class="section-title">Languages</h2>
             <div class="languages">
-                <div class="lang"><strong>Arabic</strong> <span>Native</span></div>
-                <div class="lang"><strong>English</strong> <span>Excellent (Fluent)</span></div>
+                <div class="lang"><strong>Arabic:</strong> <span>Native</span></div>
+                <div class="lang"><strong>English:</strong> <span>Excellent (Professional Working Proficiency)</span></div>
             </div>
         </section>
     </div>
-
-    <!-- (اختياري) تذييل بسيط خارج البطاقة -->
-    <p style="color: #5f6b7a; font-size: 0.9rem; text-align: center;">© Ibrahim Ahmed – آخر تحديث: مارس 2026</p>
+    <p style="color: #5f6b7a; font-size: 0.9rem; text-align: center;">© 2026 Ibrahim Adam | Healthcare Data Analyst Journey</p>
 </body>
 </html>
