@@ -1,33 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Summary & Contact – Ibrahim Adam</title>
-<style>
-    body { font-family: 'Inter', sans-serif; padding: 20px; background: #f1f5f9; color: #0f172a; }
-    h1 { font-size: 2.5rem; text-align: center; margin-bottom: 5px; }
-    h2 { font-size: 1.3rem; text-align: center; color: #0077b5; margin-bottom: 20px; }
-    .contact-info { text-align: center; margin-bottom: 25px; }
-    .contact-info a { display: block; margin: 5px 0; color: #0f172a; text-decoration: none; }
-    .summary-card { background: #fff; padding: 15px; border-left: 5px solid #0077b5; border-radius: 8px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibrahim Ahmed Adam | Medical Data Analyst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0077b5;
+            --secondary: #0f172a;
+            --accent: #38bdf8;
+            --bg: #f1f5f9;
+            --white: #ffffff;
+            --text: #334155;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.3s ease; }
+
+        body {
+            background-color: var(--bg);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: var(--secondary);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .main-wrapper {
+            max-width: 1300px; /* عرض مخصص لملء شاشة اللابتوب */
+            margin: 20px auto;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* رأس الصفحة */
+        header {
+            text-align: center;
+            padding: 50px 30px;
+            background: linear-gradient(to right, #f8fafc, #ffffff);
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        header h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        header h1:hover { color: var(--primary); transform: translateY(-2px); cursor: default; }
+
+        header h2 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+        }
+
+        .contact-info a:hover {
+            background: #f0f9ff;
+            color: var(--primary);
+            border-color: #bae6fd;
+        }
+
+        /* تقسيم المحتوى لعمودين للابتوب */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 40px;
+            padding: 45px;
+        }
+
+        .section { margin-bottom: 35px; }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 8px;
+        }
+
+        .section-title:hover { color: var(--primary); border-color: var(--primary); padding-left: 10px; }
+
+        .section-title i { color: var(--primary); font-size: 1.2rem; }
+
+        .summary-card {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary);
+            font-size: 1.05rem;
+            color: var(--text);
+        }
+
+        /* المهارات كـ بطاقات صغيرة */
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+
+        .tag {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* الخبرة */
+        .exp-item { margin-bottom: 25px; position: relative; padding-left: 20px; border-left: 2px solid #e2e8f0; }
+        .exp-item:hover { border-left-color: var(--primary); }
+        .exp-title { font-weight: 700; font-size: 1.15rem; color: var(--secondary); }
+        .exp-company { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
+        .exp-date { font-size: 0.85rem; color: #94a3b8; margin-bottom: 8px; }
+
+        /* زر التحميل */
+        .download-zone {
+            text-align: center;
+            padding: 40px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .btn-download {
+            background: var(--primary);
+            color: white;
+            padding: 16px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 25px rgba(0, 119, 181, 0.25);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-download:hover { background: var(--secondary); transform: translateY(-3px); }
+
+        @media (max-width: 992px) {
+            .content-grid { grid-template-columns: 1fr; padding: 25px; }
+            header h1 { font-size: 2.6rem; }
+        }
+    </style>
 </head>
 <body>
-<h1>Ibrahim Ahmed Adam</h1>
-<h2>Medical Data Analyst | HIS Specialist</h2>
 
-<div class="contact-info">
-<a href="tel:+971508295306">📞 +971 50 829 5306</a>
-<a href="mailto:ibrahim121adam@gmail.com">✉ ibrahim121adam@gmail.com</a>
-<a href="https://wa.me/971508295306" target="_blank">💬 WhatsApp</a>
-<a href="#" target="_blank">🔗 LinkedIn</a>
-<a href="#" target="_blank">🔗 GitHub</a>
-<span>🆔 Visa Status: UAE Resident</span>
+<div class="main-wrapper">
+    <header>
+        <h1>Ibrahim Ahmed Adam</h1>
+        <h2>Medical Data Analyst | Health Information Systems (HIS)</h2>
+        <div class="contact-info">
+            <a href="tel:+971508295306"><i class="fas fa-phone"></i> +971 50 829 5306</a>
+            <a href="mailto:ibrahim121adam@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
+            <a href="https://wa.me/971508295306" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <span><i class="fas fa-id-card"></i> Visa Status: UAE Resident</span>
+        </div>
+    </header>
+
+    <div class="content-grid">
+        <div class="main-col">
+            <section class="section">
+                <h3 class="section-title"><i class="fas fa-bullseye"></i> Professional Summary</h3>
+                <div class="summary-card">
+                    Healthcare-focused Data Analyst with 5+ years of clinical experience as a Licensed Nurse. Skilled in <strong>SQL, Python, and Excel</strong> for interpreting patient data and hospital workflows to improve operational efficiency.
+                </div>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h3>
+                <div class="exp-item">
+                    <div class="exp-title">Licensed Practical Nurse</div>
+                    <div class="exp-company">AL Saaha Specialized Hospital & AL Moalem Medical City — Sudan</div>
+                    <div class="exp-date">2018 – 2022</div>
+                    <ul style="padding-left: 20px; font-size: 0.95rem;">
+                        <li>Managed clinical documentation within <strong>HIS</strong>.</li>
+                        <li>Monitored <strong>EHR</strong> systems to support clinical decision-making.</li>
+                        <li>Collaborated with teams to improve patient care outcomes.</li>
+                    </ul>
+                </div>
+                
+                <div class="exp-item">
+                    <div class="exp-title">Freelance IT & Analytics</div>
+                    <div class="exp-company">Independent Projects — Ajman, UAE</div>
+                    <div class="exp-date">2023 – Present</div>
+                    <ul style="padding-left: 20px; font-size: 0.95rem;">
+                        <li>Developed responsive websites and data insights tools.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title"><i class="fas fa-code-branch"></i> Projects</h3>
+                <div style="font-size: 0.95rem; color: var(--text);">
+                    <p><strong>• Healthcare Data Analysis:</strong> Pattern identification using Python.</p>
+                    <p><strong>• Clinical Data Portfolio:</strong> Responsive site for showcasing medical insights.</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="side-col">
+            <section class="section">
+                <h3 class="section-title"><i class="fas fa-tools"></i> Core Skills</h3>
+                <div style="margin-bottom: 15px;">
+                    <p style="font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 8px;">Medical Data Analytics</p>
+                    <div class="skill-tags">
+                        <span class="tag">SQL</span> <span class="tag">Python</span> <span class="tag">Data Cleaning</span> <span class="tag">EHR</span>
+                    </div>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p style="font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 8px;">Visualization & BI</p>
+                    <div class="skill-tags">
+                        <span class="tag">Power BI</span> <span class="tag">Excel (Pivot)</span> <span class="tag">Dashboards</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+                <p style="font-weight: 600; font-size: 0.95rem;">Diploma in Nursing Sciences</p>
+                <p style="font-size: 0.9rem; color: var(--text);">Sinnar University — Sudan</p>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title"><i class="fas fa-award"></i> Certifications</h3>
+                <ul style="list-style: none; font-size: 0.9rem; line-height: 2;">
+                    <li><i class="fas fa-check-circle" style="color: #10b981;"></i> Google IT Support Professional</li>
+                    <li><i class="fas fa-check-circle" style="color: #10b981;"></i> AWS Cloud Architecting</li>
+                    <li><i class="fas fa-spinner" style="color: var(--primary);"></i> Healthcare Data Analytics (In Progress)</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title"><i class="fas fa-language"></i> Languages</h3>
+                <p style="font-size: 0.95rem;"><strong>Arabic:</strong> Native</p>
+                <p style="font-size: 0.95rem;"><strong>English:</strong> Professional Working</p>
+            </section>
+        </div>
+    </div>
+
+    <div class="download-zone">
+        <button class="btn-download" onclick="window.print()">
+            <i class="fas fa-file-pdf"></i> Download Official CV (PDF)
+        </button>
+    </div>
 </div>
 
-<div class="summary-card">
-Healthcare-focused Data Analyst with 5+ years of clinical experience as a Licensed Nurse. Skilled in SQL, Python, and Excel for interpreting patient data and hospital workflows to generate actionable insights.
-</div>
+<p style="text-align: center; font-size: 0.8rem; color: #94a3b8; margin-bottom: 30px;">
+    Healthcare Data Analytics Portfolio | Ibrahim Adam © 2026
+</p>
 
 </body>
 </html>
