@@ -1,274 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ibrahim Adam | Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #0077b5;
-            --hover-color: #00a0dc;
-            --bg-color: #f4f7f9;
-            --text-main: #1e293b;
-            --text-sub: #64748b;
-        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.3s ease; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            background-color: var(--bg-color);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text-main);
-            padding: 20px;
-        }
+<title>Ibrahim Ahmed Adam | Health Care Data Analytics</title>
 
-        /* الحاوية العريضة والديناميكية */
-        .cv-wrapper {
-            max-width: 1200px; /* عرض أكبر للابتوب */
-            width: 95%;
-            margin: 20px auto;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            padding: 50px;
-            overflow: hidden;
-        }
+<link rel="stylesheet" href="style.css">
 
-        /* رأس الصفحة - المركز */
-        .header {
-            text-align: center;
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 30px;
-            margin-bottom: 30px;
-        }
-
-        .header h1 {
-            font-size: 3.5rem;
-            color: var(--text-main);
-            margin-bottom: 10px;
-            cursor: default;
-        }
-
-        /* تأثير الهوفر على الاسم */
-        .header h1:hover {
-            color: var(--primary-color);
-            transform: scale(1.02);
-        }
-
-        .header h2 {
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            font-weight: 500;
-            text-transform: capitalize; /* الحرف الأول كبير والباقي صغير */
-        }
-
-        /* روابط التواصل التفاعلية */
-        .contact-grid {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .contact-grid a {
-            text-decoration: none;
-            color: var(--text-sub);
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .contact-grid a:hover {
-            color: var(--primary-color);
-        }
-
-        /* الأقسام */
-        .section { margin-bottom: 40px; }
-
-        .section-title {
-            font-size: 1.8rem;
-            color: var(--text-main);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            cursor: pointer;
-        }
-
-        /* تأثير الهوفر على العناوين الجانبية */
-        .section-title:hover {
-            color: var(--primary-color);
-            padding-left: 10px;
-        }
-
-        .section-title i {
-            font-size: 1.4rem;
-            color: var(--primary-color);
-        }
-
-        .summary-content {
-            background: #fcfdfe;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid var(--primary-color);
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        /* الشبكة المرنة للمحتوى */
-        .main-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 40px;
-        }
-
-        .experience-card {
-            margin-bottom: 25px;
-            padding-left: 20px;
-            border-left: 2px solid #e2e8f0;
-        }
-
-        .experience-card h4 {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-tag {
-            background: var(--bg-color);
-            padding: 8px 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid #e2e8f0;
-        }
-
-        .skill-tag:hover {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-
-        /* زر التحميل في الأسفل */
-        .download-area {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px solid #f1f5f9;
-        }
-
-        .btn-download {
-            background: var(--primary-color);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 10px 20px rgba(0, 119, 181, 0.2);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-download:hover {
-            background: var(--hover-color);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 119, 181, 0.3);
-        }
-
-        /* استجابة الشاشات الصغيرة (الموبايل) */
-        @media (max-width: 900px) {
-            .main-grid { grid-template-columns: 1fr; }
-            .cv-wrapper { padding: 30px 20px; }
-            .header h1 { font-size: 2.5rem; }
-            .header h2 { font-size: 1.3rem; }
-        }
-    </style>
 </head>
+
 <body>
 
-<div class="cv-wrapper">
-    <header class="header">
-        <h1>Ibrahim Ahmed Adam</h1>
-        <h2>Healthcare Data Analyst | Ex-Nurse</h2>
-        
-        <div class="contact-grid">
-            <a href="tel:+971508295306"><i class="fas fa-phone"></i> +971 50 829 5306</a>
-            <a href="mailto:ibrahim121adam@gmail.com"><i class="fas fa-envelope"></i> ibrahim121adam@gmail.com</a>
-            <a href="https://wa.me/971508295306" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="https://linkedin.com/in/ibrahim121adam" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        </div>
-    </header>
+<div class="container">
 
-    <section class="section">
-        <h3 class="section-title"><i class="fas fa-chart-line"></i> Professional Summary</h3>
-        <div class="summary-content">
-            Performance-driven professional with 5+ years of clinical experience as a Licensed Nurse, transitioning into Healthcare Data Analytics. Proficient in SQL, Python, and Power BI. Expert in bridging the gap between clinical workflows and data-driven insights to improve patient outcomes.
-        </div>
-    </section>
+<header>
 
-    <div class="main-grid">
-        <section class="section">
-            <h3 class="section-title"><i class="fas fa-briefcase"></i> Experience</h3>
-            
-            <div class="experience-card">
-                <h4>Licensed Practical Nurse</h4>
-                <p style="font-size: 0.9rem; color: var(--text-sub);">2018 - 2022 | Al-Saaha & Al-Moalem Hospitals</p>
-                <ul style="margin-top: 10px; padding-left: 20px; font-size: 0.95rem;">
-                    <li>Managed clinical data for ICU and Oncology wards.</li>
-                    <li>Collaborated on analyzing patient recovery trends.</li>
-                </ul>
-            </div>
-
-            <div class="experience-card">
-                <h4>IT Support & Data Freelancer</h4>
-                <p style="font-size: 0.9rem; color: var(--text-sub);">2023 - Present | UAE</p>
-                <ul style="margin-top: 10px; padding-left: 20px; font-size: 0.95rem;">
-                    <li>Developing data-driven marketing insights using Google Analytics.</li>
-                    <li>Building responsive web solutions for local clients.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h3 class="section-title"><i class="fas fa-tools"></i> Core Skills</h3>
-            <div class="skills-list">
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">Python (Pandas)</span>
-                <span class="skill-tag">Power BI</span>
-                <span class="skill-tag">Data Visualization</span>
-                <span class="skill-tag">Health Informatics</span>
-                <span class="skill-tag">AWS Cloud</span>
-                <span class="skill-tag">Google IT Support</span>
-            </div>
-            
-            <h3 class="section-title" style="margin-top: 30px;"><i class="fas fa-graduation-cap"></i> Education</h3>
-            <p style="font-size: 1rem;"><strong>Diploma in Nursing</strong><br>Sinnar University</p>
-        </section>
-    </div>
-
-    <div class="download-area">
-        <a href="Ibrahim_Adam_CV.pdf" class="btn-download" download>
-            <i class="fas fa-file-pdf"></i> Download Professional CV
-        </a>
-    </div>
+<div class="profile">
+<img src="assets/profile.jpg" alt="profile">
 </div>
 
-<p style="text-align: center; color: var(--text-sub); font-size: 0.8rem; margin-bottom: 30px;">
-    Designed with Precision for Ibrahim Adam © 2026
+<h1 class="name">IBRAHIM AHMED ADAM</h1>
+
+<h2 class="title">Health Care Data Analytics</h2>
+
+<div class="contact">
+
+<a href="mailto:ibrahim121adam@gmail.com">Email</a>
+
+<a href="tel:+971508295306">Phone</a>
+
+<a href="https://wa.me/971508295306">WhatsApp</a>
+
+<a href="#">LinkedIn</a>
+
+<a href="#">GitHub</a>
+
+</div>
+
+<button id="download">Download CV</button>
+
+</header>
+
+
+<section>
+
+<h3>Profile</h3>
+
+<p>
+
+Healthcare-focused professional with 5+ years of clinical experience as a nurse, transitioning into healthcare data analytics. Skilled in Python, SQL, Excel, and data visualization. Passionate about transforming healthcare data into actionable insights to improve patient outcomes and healthcare operations.
+
 </p>
+
+</section>
+
+
+<section>
+
+<h3>Technical Skills</h3>
+
+<div class="skills">
+
+<div class="skill">
+<p>Python</p>
+<div class="bar"><div class="progress python"></div></div>
+</div>
+
+<div class="skill">
+<p>SQL</p>
+<div class="bar"><div class="progress sql"></div></div>
+</div>
+
+<div class="skill">
+<p>Excel</p>
+<div class="bar"><div class="progress excel"></div></div>
+</div>
+
+<div class="skill">
+<p>Power BI</p>
+<div class="bar"><div class="progress powerbi"></div></div>
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h3>Experience</h3>
+
+<div class="timeline">
+
+<div class="item">
+<h4>Licensed Practical Nurse</h4>
+<span>2018 — 2022</span>
+<p>ICU, Oncology and surgical wards. Managed clinical documentation and monitored patient records.</p>
+</div>
+
+<div class="item">
+<h4>Freelance IT Support</h4>
+<span>2023 — Present</span>
+<p>Built responsive web pages and used analytics tools for data insights.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h3>Projects</h3>
+
+<ul>
+
+<li>Healthcare Data Analysis using Python</li>
+
+<li>Personal Portfolio Website (HTML, CSS, JS)</li>
+
+<li>Data Visualization Practice Projects</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h3>Education</h3>
+
+<ul>
+
+<li>Diploma in Nursing Sciences — Sinnar University</li>
+
+<li>Technical Support Fundamentals — Google</li>
+
+<li>AWS Cloud Architecting — AWS Academy</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h3>Languages</h3>
+
+<ul>
+
+<li>Arabic — Native</li>
+
+<li>English — Excellent</li>
+
+</ul>
+
+</section>
+
+
+<footer>
+
+<p>Ajman, UAE</p>
+
+</footer>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
