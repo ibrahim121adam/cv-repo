@@ -1,65 +1,93 @@
 body{
 
-font-family:Arial, Helvetica, sans-serif;
-background:#f5f7fb;
 margin:0;
+font-family:Arial, Helvetica, sans-serif;
+
+background:linear-gradient(135deg,#eef2f7,#d9e6ff);
 
 }
 
 .container{
 
-max-width:1200px;
+max-width:1300px;
 margin:auto;
-background:white;
 padding:40px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
 
 }
 
-header{
+.header{
+
+display:flex;
+align-items:center;
+justify-content:center;
+gap:25px;
+margin-bottom:40px;
+
+}
+
+.profile{
+
+width:150px;
+height:150px;
+border-radius:50%;
+border:5px solid #2f6bff;
+
+}
+
+.header-text{
 
 text-align:center;
 
 }
 
-.profile img{
+.header-text h1{
 
-width:130px;
-height:130px;
-border-radius:50%;
-
-}
-
-.name{
-
-font-size:42px;
-margin:10px 0;
-transition:0.3s;
+font-size:44px;
+margin:0;
+font-weight:900;
 
 }
 
-.name:hover{
+.header-text h2{
 
-color:#0077ff;
-transform:scale(1.05);
+margin-top:10px;
+font-size:22px;
+text-transform:capitalize;
+color:#3c4a6b;
 
 }
 
-.title{
+.grid-layout{
 
-font-variant:small-caps;
-font-size:20px;
-color:#555;
+display:grid;
+grid-template-columns:300px 1fr;
+gap:40px;
+
+}
+
+/* sidebar */
+
+.sidebar{
+
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+}
+
+.sidebar h3{
+
+color:#1f3a8a;
+margin-top:20px;
 
 }
 
 .contact{
 
-margin-top:10px;
 display:flex;
-gap:20px;
-justify-content:center;
-flex-wrap:wrap;
+flex-direction:column;
+gap:10px;
 
 }
 
@@ -67,102 +95,123 @@ flex-wrap:wrap;
 
 text-decoration:none;
 color:#333;
-transition:0.3s;
 
 }
 
 .contact a:hover{
 
-color:#0077ff;
-transform:translateY(-3px);
+color:#2f6bff;
 
 }
 
-button{
+/* skills chips */
 
-margin-top:20px;
-padding:10px 20px;
-border:none;
-background:#0077ff;
-color:white;
+.skills{
+
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+
+}
+
+.chip{
+
+background:#eef3ff;
+padding:8px 14px;
+border-radius:20px;
+font-size:14px;
 cursor:pointer;
-
-}
-
-button:hover{
-
-background:#005ad6;
-
-}
-
-section{
-
-margin-top:35px;
-
-}
-
-h3{
-
-border-bottom:2px solid #eee;
-padding-bottom:5px;
 transition:0.3s;
 
 }
 
-h3:hover{
+.chip:hover{
 
-color:#0077ff;
-
-}
-
-/* skills */
-
-.bar{
-
-background:#eee;
-height:10px;
+background:#2f6bff;
+color:white;
+transform:translateY(-2px);
 
 }
 
-.progress{
+/* main */
 
-height:10px;
+.main{
+
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 
 }
 
-.python{width:75%;background:#0077ff;}
-.sql{width:70%;background:#0077ff;}
-.excel{width:80%;background:#0077ff;}
-.powerbi{width:60%;background:#0077ff;}
+.main h3{
+
+color:#1f3a8a;
+font-size:22px;
+
+}
 
 /* timeline */
 
 .timeline{
 
-border-left:3px solid #0077ff;
+border-left:3px solid #2f6bff;
 padding-left:20px;
 
 }
 
 .item{
 
-margin-bottom:20px;
+margin-bottom:25px;
+
+}
+
+.item span{
+
+color:#777;
+font-size:14px;
+
+}
+
+/* button */
+
+#downloadBtn{
+
+position:fixed;
+bottom:25px;
+right:25px;
+
+background:#2f6bff;
+color:white;
+border:none;
+padding:15px 25px;
+font-size:16px;
+border-radius:30px;
+
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+
+}
+
+#downloadBtn:hover{
+
+background:#1f4dd6;
 
 }
 
 /* responsive */
 
-@media(max-width:768px){
+@media(max-width:900px){
 
-.container{
+.grid-layout{
 
-padding:20px;
+grid-template-columns:1fr;
 
 }
 
-.name{
+.header{
 
-font-size:28px;
+flex-direction:column;
 
 }
 
