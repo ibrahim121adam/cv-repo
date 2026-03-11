@@ -1,4 +1,4 @@
-document.getElementById("download").onclick=function(){
+document.getElementById("downloadBtn").onclick=function(){
 
 window.open("assets/ibrahim-cv.pdf")
 
