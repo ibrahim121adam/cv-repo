@@ -1,5 +1,0 @@
-document.getElementById("downloadBtn").onclick=function(){
-
-window.open("assets/ibrahim-cv.pdf")
-
-}
