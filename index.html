@@ -3,159 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ibrahim Adam - CV</title>
+    <title>Ibrahim Adam | Healthcare Data Analyst</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
+        :root {
+            --primary: #0077b5; /* لون احترافي هادئ */
+            --secondary: #f0f7ff;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: #f2f5f9; font-family: 'Segoe UI', 'Arial', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 20px; line-height: 1.5; }
-        .cv-card { max-width: 950px; width: 100%; background-color: #ffffff; border-radius: 16px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); padding: 45px 50px; margin-bottom: 25px; }
-        .print-btn { display: flex; justify-content: flex-end; margin-bottom: 25px; }
-        .print-btn button { background-color: #0077b5; color: white; border: none; border-radius: 50px; padding: 12px 30px; font-size: 1rem; font-weight: 600; cursor: pointer; box-shadow: 0 5px 12px rgba(0, 119, 181, 0.3); transition: 0.2s; border: 1px solid #005a8c; }
-        .print-btn button:hover { background-color: #005a8c; transform: scale(1.02); }
-        .header { margin-bottom: 25px; border-bottom: 3px solid #0077b5; padding-bottom: 20px; }
-        .header h1 { font-size: 2.8em; font-weight: 700; color: #1e293b; letter-spacing: 1px; margin-bottom: 5px; }
-        .header h2 { font-size: 1.5em; font-weight: 500; color: #0077b5; text-transform: uppercase; letter-spacing: 1.5px; }
-        .contact { display: flex; flex-wrap: wrap; gap: 20px 30px; background-color: #f8fafc; padding: 15px 25px; border-radius: 14px; margin-bottom: 30px; border: 1px solid #e2e8f0; font-size: 0.98em; }
-        .contact-item { display: flex; align-items: center; gap: 8px; color: #1e293b; }
-        .contact-item .icon { font-weight: 600; color: #0077b5; min-width: 30px; }
-        .section { margin-bottom: 30px; }
-        .section-title { font-size: 1.6em; font-weight: 700; color: #1e293b; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 18px; letter-spacing: 1px; }
-        .profile p { background-color: #f0f7ff; padding: 18px 25px; border-radius: 16px; border-left: 6px solid #0077b5; font-size: 1.05em; color: #1e293b; line-height: 1.7; }
-        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .skill-cat h3 { font-size: 1.2em; font-weight: 600; color: #0077b5; margin-bottom: 12px; }
-        .skill-cat ul { list-style: none; }
-        .skill-cat li { margin-bottom: 8px; padding-left: 22px; position: relative; font-size: 0.98em; color: #2d3c4b; }
-        .skill-cat li::before { content: "▹"; position: absolute; left: 0; color: #0077b5; font-weight: bold; font-size: 1.1em; }
-        .entry { margin-bottom: 28px; }
-        .entry-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-        .entry-title { font-size: 1.2em; font-weight: 700; color: #0f172a; }
-        .entry-sub { font-weight: 600; color: #0077b5; }
-        .entry-date { background-color: #ecf1f6; padding: 4px 14px; border-radius: 30px; font-size: 0.85em; font-weight: 500; color: #334155; }
-        .entry-desc { margin-top: 8px; padding-left: 18px; border-left: 2px solid #cbd5e1; }
-        .entry-desc ul { list-style: none; }
-        .entry-desc li { margin-bottom: 6px; padding-left: 20px; position: relative; font-size: 0.98em; color: #253544; }
-        .entry-desc li::before { content: "•"; color: #0077b5; font-weight: bold; position: absolute; left: 0; font-size: 1.2em; }
-        @media print { body { background: white; padding: 0.2in; } .cv-card { box-shadow: none; padding: 0.2in; max-width: 100%; border-radius: 0; } .print-btn { display: none; } }
-        @media (max-width: 700px) { .skills-grid { grid-template-columns: 1fr; } }
+
+        body {
+            background-color: #f8fafc;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* حاوية الموقع - تجعل المحتوى يتنفس */
+        .wrapper {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            overflow: hidden;
+            padding: 60px;
+        }
+
+        /* الهيدر: الاسم والصورة */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+        }
+
+        .header-text h1 {
+            font-size: 3rem;
+            color: var(--text-dark);
+            letter-spacing: -1px;
+        }
+
+        .header-text h2 {
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 1.4rem;
+            margin-top: 5px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 30px; /* زوايا دائرية عصرية */
+            object-fit: cover;
+            border: 4px solid var(--secondary);
+        }
+
+        /* بيانات التواصل */
+        .contact-bar {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* الأقسام */
+        .section { margin-bottom: 45px; }
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        /* أيقونة الداتا قبل العنوان */
+        .section-title::before {
+            content: "📊";
+            font-size: 1.2rem;
+        }
+
+        .summary-box {
+            background: var(--secondary);
+            padding: 25px;
+            border-radius: 15px;
+            border-right: 5px solid var(--primary);
+            font-size: 1.1rem;
+        }
+
+        /* شبكة المهارات والخبرة */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            padding: 8px 15px;
+            border-radius: 8px;
+            margin: 5px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover { border-color: var(--primary); color: var(--primary); }
+
+        .experience-item {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 2px solid #e2e8f0;
+        }
+
+        .experience-item h4 { color: var(--primary); }
+
+        /* زر التحميل في الأسفل */
+        .footer-action {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 2px solid #f1f5f9;
+        }
+
+        .download-btn {
+            background: var(--primary);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px rgba(0, 119, 181, 0.2);
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 119, 181, 0.3);
+            background: #005a8c;
+        }
+
+        @media (max-width: 768px) {
+            .wrapper { margin: 10px; padding: 25px; }
+            header { flex-direction: column-reverse; text-align: center; }
+            .grid { grid-template-columns: 1fr; }
+            .header-text h1 { font-size: 2.2rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="cv-card" id="cv-content">
-        <div class="print-btn">
-            <button onclick="window.print()">📥 Download PDF (Print)</button>
+
+<div class="wrapper">
+    <header>
+        <div class="header-text">
+            <h1>Ibrahim Ahmed Adam</h1>
+            <h2>Healthcare Data Analyst</h2>
+            <div class="contact-bar">
+                <span>📍 Ajman, UAE</span>
+                <span>📞 +971508295306</span>
+                <span>✉️ ibrahim121adam@gmail.com</span>
+            </div>
         </div>
+        <img src="https://github.com/ibrahim121adam.png" alt="Ibrahim Adam" class="profile-img">
+    </header>
 
-        <div class="header">
-            <h1>IBRAHIM AHMED ADAM</h1>
-            <h2>Healthcare Data Analyst | Ex-Nurse</h2>
+    <section class="section">
+        <h3 class="section-title">Professional Summary</h3>
+        <div class="summary-box">
+            Performance-driven professional with 5+ years in healthcare, now leveraging clinical expertise to drive data insights. Proficient in SQL, Python, and Power BI to improve medical operations.
         </div>
+    </section>
 
-        <div class="contact">
-            <div class="contact-item"><span class="icon">📞</span> +971 50 829 5306</div>
-            <div class="contact-item"><span class="icon">✉️</span> ibrahim121adam@gmail.com</div>
-            <div class="contact-item"><span class="icon">📍</span> Ajman, UAE</div>
-            <div class="contact-item"><span class="icon">🔗</span> in/ibrahim121adam</div>
-        </div>
-
-        <section class="section profile">
-            <h2 class="section-title">Profile</h2>
-            <p>
-                Performance-driven professional with 5+ years of clinical experience as a Licensed Nurse, transitioning into <strong>Healthcare Data Analytics</strong>. Proficient in SQL, Python, and Power BI. Expert in bridging the gap between complex clinical workflows and data-driven insights to improve patient outcomes and operational efficiency.
-            </p>
-        </section>
-
+    <div class="grid">
         <section class="section">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-cat">
-                    <h3>Data Analytics & Tech</h3>
-                    <ul>
-                        <li>SQL (Intermediate), Power BI (Learning)</li>
-                        <li>Python (Pandas, NumPy, Matplotlib)</li>
-                        <li>Excel (Advanced Pivot Tables)</li>
-                        <li>AWS Cloud Architecting (Academy)</li>
-                        <li>GitHub & IT Technical Support</li>
-                    </ul>
-                </div>
-                <div class="skill-cat">
-                    <h3>Healthcare & Professional</h3>
-                    <ul>
-                        <li>Clinical Data Interpretation</li>
-                        <li>Patient Safety & Quality Control</li>
-                        <li>Health Informatics & Documentation</li>
-                        <li>Problem-solving & Adaptability</li>
-                        <li>Effective Multidisciplinary Communication</li>
-                    </ul>
-                </div>
+            <h3 class="section-title">Technical Expertise</h3>
+            <div>
+                <span class="skill-tag">SQL (Intermediate)</span>
+                <span class="skill-tag">Python (Pandas/NumPy)</span>
+                <span class="skill-tag">Power BI & Visualization</span>
+                <span class="skill-tag">Excel Analytics</span>
+                <span class="skill-tag">AWS Cloud Architecture</span>
+                <span class="skill-tag">Health Informatics</span>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section-title">Work Experience</h2>
-
-            <div class="entry">
-                <div class="entry-header">
-                    <span class="entry-title">Licensed Practical Nurse</span>
-                    <span class="entry-date">2018 – 2022</span>
-                </div>
-                <div class="entry-sub">AL Saaha Specialized Hospital & AL Moalem Medical City, Sudan</div>
-                <div class="entry-desc">
-                    <ul>
-                        <li>Managed clinical documentation for ICU, Oncology, and Surgical wards.</li>
-                        <li>Collaborated with multidisciplinary teams to analyze patient recovery patterns.</li>
-                        <li>Utilized digital health records to monitor vital signs and patient adherence.</li>
-                        <li>Ensured high standards of hygiene and patient data privacy.</li>
-                    </ul>
-                </div>
+            <h3 class="section-title">Experience Highlights</h3>
+            <div class="experience-item">
+                <h4>Licensed Nurse (ICU/Oncology)</h4>
+                <p style="font-size: 0.85rem; color: #64748b;">2018 - 2022 | Al-Saaha & Al-Moalem Hospitals</p>
+                <p style="font-size: 0.9rem;">Managed patient data and recovery trends analysis.</p>
             </div>
-
-            <div class="entry">
-                <div class="entry-header">
-                    <span class="entry-title">Freelance IT Support & Data Analyst</span>
-                    <span class="entry-date">2023 – Present</span>
-                </div>
-                <div class="entry-sub">Remote / Ajman, UAE</div>
-                <div class="entry-desc">
-                    <ul>
-                        <li>Developing data-driven projects using SQL and Python.</li>
-                        <li>Managed digital marketing campaigns using Google Analytics for data insights.</li>
-                        <li>Built and maintained responsive web interfaces using modern web technologies.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Education & Certifications</h2>
-            <div class="entry">
-                <div class="entry-header">
-                    <span class="entry-title">Diploma in Nursing Sciences</span>
-                    <span class="entry-date">2014 – 2018</span>
-                </div>
-                <div class="entry-sub">Sinnar University, Sudan</div>
-            </div>
-            <div class="entry">
-                <div class="entry-header">
-                    <span class="entry-title">Professional Certifications</span>
-                </div>
-                <div class="entry-desc">
-                    <ul>
-                        <li>Google IT Support Professional Certificate</li>
-                        <li>AWS Academy Cloud Architecting</li>
-                        <li>Digital Marketing Fundamentals (Google)</li>
-                        <li>BLS Training Course & COVID-19 Training</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Languages</h2>
-            <div class="languages">
-                <div style="margin-right: 30px;"><strong>Arabic:</strong> Native</div>
-                <div><strong>English:</strong> Excellent</div>
+            <div class="experience-item">
+                <h4>IT & Data Freelancing</h4>
+                <p style="font-size: 0.85rem; color: #64748b;">2023 - Present | UAE</p>
+                <p style="font-size: 0.9rem;">Web development and marketing analytics projects.</p>
             </div>
         </section>
     </div>
-    <p style="color: #5f6b7a; font-size: 0.9rem; text-align: center;">© 2026 Ibrahim Adam | Generated for Healthcare Data Path</p>
+
+    <div class="footer-action">
+        <button class="download-btn" onclick="downloadPDF()">
+            <span>⬇️</span> Download Professional CV (PDF)
+        </button>
+    </div>
+</div>
+
+<script>
+    function downloadPDF() {
+        // سيتم ربطه بملفك الـ PDF الذي ترفعه لاحقاً
+        const fileUrl = 'Ibrahim_Adam_CV.pdf';
+        const link = document.createElement('a');
+        link.href = fileUrl;
+        link.download = 'Ibrahim_Adam_CV.pdf';
+        link.click();
+    }
+</script>
+
 </body>
 </html>
