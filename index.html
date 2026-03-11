@@ -26,7 +26,7 @@
         }
 
         .main-wrapper {
-            max-width: 1300px; /* عرض مخصص لملء شاشة اللابتوب */
+            max-width: 1300px;
             margin: 20px auto;
             background: var(--white);
             border-radius: 20px;
@@ -35,7 +35,6 @@
             border: 1px solid #e2e8f0;
         }
 
-        /* رأس الصفحة */
         header {
             text-align: center;
             padding: 50px 30px;
@@ -86,7 +85,6 @@
             border-color: #bae6fd;
         }
 
-        /* تقسيم المحتوى لعمودين للابتوب */
         .content-grid {
             display: grid;
             grid-template-columns: 1.4fr 1fr;
@@ -121,7 +119,6 @@
             color: var(--text);
         }
 
-        /* المهارات كـ بطاقات صغيرة */
         .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
 
         .tag {
@@ -141,38 +138,53 @@
             transform: scale(1.05);
         }
 
-        /* الخبرة */
         .exp-item { margin-bottom: 25px; position: relative; padding-left: 20px; border-left: 2px solid #e2e8f0; }
         .exp-item:hover { border-left-color: var(--primary); }
         .exp-title { font-weight: 700; font-size: 1.15rem; color: var(--secondary); }
         .exp-company { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
         .exp-date { font-size: 0.85rem; color: #94a3b8; margin-bottom: 8px; }
 
-        /* زر التحميل */
         .download-zone {
             text-align: center;
-            padding: 40px;
+            padding: 60px 40px;
             background: #f8fafc;
             border-top: 1px solid #e2e8f0;
         }
 
         .btn-download {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
-            padding: 16px 45px;
+            padding: 18px 50px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 10px 25px rgba(0, 119, 181, 0.25);
+            box-shadow: 0 10px 25px rgba(0, 119, 181, 0.3);
             border: none;
             cursor: pointer;
         }
 
-        .btn-download:hover { background: var(--secondary); transform: translateY(-3px); }
+        .btn-download:hover { 
+            background: var(--secondary); 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 30px rgba(15, 23, 42, 0.3);
+        }
+
+        /* Spinner Style */
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            display: none;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         @media (max-width: 992px) {
             .content-grid { grid-template-columns: 1fr; padding: 25px; }
@@ -190,8 +202,8 @@
             <a href="tel:+971508295306"><i class="fas fa-phone"></i> +971 50 829 5306</a>
             <a href="mailto:ibrahim121adam@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
             <a href="https://wa.me/971508295306" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/ibrahim121adam/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/ibrahim121adam" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             <span><i class="fas fa-id-card"></i> Visa Status: UAE Resident</span>
         </div>
     </header>
@@ -278,8 +290,10 @@
     </div>
 
     <div class="download-zone">
-        <button class="btn-download" onclick="window.print()">
-            <i class="fas fa-file-pdf"></i> Download Official CV (PDF)
+        <button id="downloadBtn" class="btn-download">
+            <div class="spinner" id="btnSpinner"></div>
+            <i class="fas fa-file-download" id="btnIcon"></i> 
+            <span id="btnText">Download Professional CV</span>
         </button>
     </div>
 </div>
@@ -287,6 +301,42 @@
 <p style="text-align: center; font-size: 0.8rem; color: #94a3b8; margin-bottom: 30px;">
     Healthcare Data Analytics Portfolio | Ibrahim Adam © 2026
 </p>
+
+<script>
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+        const btnText = document.getElementById('btnText');
+        const btnIcon = document.getElementById('btnIcon');
+        const btnSpinner = document.getElementById('btnSpinner');
+        
+        // تغيير حالة الزر لإظهار جاري التحميل
+        btnText.innerText = "Processing...";
+        btnIcon.style.display = "none";
+        btnSpinner.style.display = "block";
+        this.style.pointerEvents = "none";
+        this.style.opacity = "0.8";
+
+        // اسم الملف الموجود في الريبو الخاص بك
+        const fileName = 'Ibrahim_Ahmed_Medical_Data_Analyst_CV.pdf';
+
+        setTimeout(() => {
+            // فتح الملف في نافذة جديدة وبدء التحميل
+            const link = document.createElement('a');
+            link.href = fileName;
+            link.target = '_blank';
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // إعادة الزر لحالته الطبيعية
+            btnText.innerText = "Download Professional CV";
+            btnIcon.style.display = "block";
+            btnSpinner.style.display = "none";
+            this.style.pointerEvents = "auto";
+            this.style.opacity = "1";
+        }, 1000);
+    });
+</script>
 
 </body>
 </html>
